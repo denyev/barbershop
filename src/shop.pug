@@ -5,3 +5,20 @@ append vars
 
 block content
 	include pug/header
+	h1
+		|Средства ухода
+
+	+breadcrumbs([
+		{
+			href: 'index.html',
+			text: 'Главная'
+		},
+		{
+			href: 'shop.html',
+			text: 'Магазин'
+		},
+		{
+			href: 'shop.html#care-products',
+			text: 'Средства ухода'
+		}
+	])
