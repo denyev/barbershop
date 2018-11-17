@@ -1,9 +1,9 @@
 {
-	"name": "ninelines-template",
-	"version": "2.5.0",
-	"description": "Шаблон для разработки сайтов",
+	"name": "barbershop",
+	"version": "1.0.0",
+	"description": "Barbershop template",
 	"scripts": {},
-	"author": "Dmitry Artemov <d.artemov@9-lines.com>",
+	"author": "Denis Yevtushenko <denevt87@gmail.com>",
 	"license": "ISC",
 	"devDependencies": {
 		"@babel/core": "7.1.2",
