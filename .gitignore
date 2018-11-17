@@ -34,10 +34,9 @@ phpunit.phar
 *.sublime-workspace
 
 # NPM packages
-node_modules
+node_modules/
 .env
 package-lock.json
-package.json
 
 # PNPM packages
 shrinkwrap.yaml
@@ -108,7 +107,6 @@ error_log*
 *.flv
 
 # Translate
-*.log
 *.mo
 *.po
 
