@@ -25,10 +25,10 @@ block content
 			}
 		])
 
-		h2
-			| Каталог товаров
+		section.product
+			h2.product__title.visually-hidden
+				| Каталог товаров
 
-		div.product
 			ul.product__list
 				li.product__item
 					+card({
