@@ -19,11 +19,11 @@
 	```
 
 mixin socials(items)
-	each item in items
-		div.socials&attributes(attributes)
-			b.socials__title
-				| Давайте дружить!
-			ul.socials__list
+	div.socials&attributes(attributes)
+		b.socials__title
+			| Давайте дружить!
+		ul.socials__list
+			each item in items
 				li.socials__item
 					a.socials__link(
 						class=item.class
