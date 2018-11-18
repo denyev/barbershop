@@ -1,0 +1,31 @@
+//-
+	@param {Object[]} length - The list of pages and their designations.
+	@param {number} current_number - The number of current page.
+
+	@example
+
+	```
+	+pagination({1: 'первую', 2: 'вторую', 3: 'третью', 4: 'четвёртую'}, 2)
+	```
+
+mixin pagination(length, current_number)
+	div.pagination&attributes(attributes)
+		ul.pagination__list
+			each number_name, page_number in length
+				li.paginaton__item
+					- var url = '?page=' + page_number
+					- var title = 'Перейти на ' + number_name + ' страницу'
+					- var active_class = null
+
+					if(parseInt(page_number) === 1)
+						- var url= ''
+
+					if(parseInt(page_number) === current_number)
+						- var active_class= 'paination__link--active'
+
+					a.paination__link(
+						class=active_class
+						href=url
+						title=title
+					)
+						| #{page_number}
