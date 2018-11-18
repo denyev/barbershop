@@ -18,10 +18,12 @@ mixin pagination(length, current_number)
 					- var active_class = null
 
 					if(parseInt(page_number) === 1)
-						- var url= ''
+						- var url= '#'
 
 					if(parseInt(page_number) === current_number)
+						- var url = null
 						- var active_class= 'paination__link--active'
+						- var title = 'Текущая страница'
 
 					a.paination__link(
 						class=active_class
