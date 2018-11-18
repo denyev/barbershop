@@ -22,13 +22,13 @@
 	])
 	```
 mixin breadcrumbs(items)
-	div.breadcrumb
+	div.breadcrumbs
 		ol.beadcrumb__list(
 			itemscope
 			itemtype="http://schema.org/BreadcrumbList"
 		)&attributes(attributes)
 			each item, index in items
-				li.breadcrumb__item(
+				li.breadcrumbs__item(
 					itemprop="itemListElement"
 					itemscope
 					itemtype="http://schema.org/ListItem"
@@ -39,18 +39,18 @@ mixin breadcrumbs(items)
 					- var content = items.length - tmp_index
 
 					if(last_index !== index)
-						a.breadcrumb__link(
+						a.breadcrumbs__link(
 							href=item.href
 							title=(item.title) ? item.title : 'Перейти на страницу: ' + item.text
 							itemprop="item"
 						)
-							span.breadcrumb__text(itemprop="name")
+							span.breadcrumbs__text(itemprop="name")
 								| #{item.text}
 
 						meta(itemprop="position" content=content)
 					else
 						link(href=item.href itemprop="item")
-						span.breadcrumb__link.breadcrumb__link--current(itemprop="name")
+						span.breadcrumbs__link.breadcrumbs__link--current(itemprop="name")
 							| #{item.text}
 
 						meta(itemprop="position" content=content)
