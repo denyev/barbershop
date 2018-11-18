@@ -6,95 +6,96 @@ append vars
 
 block content
 	include pug/header
-	h1
-		| Средства ухода
+	main
+		h1
+			| Средства ухода
 
-	+breadcrumbs([
-		{
-			href: 'index.html',
-			text: 'Главная'
-		},
-		{
-			href: 'shop.html',
-			text: 'Магазин'
-		},
-		{
-			href: 'shop.html#care-products',
-			text: 'Средства ухода'
-		}
-	])
+		+breadcrumbs([
+			{
+				href: 'index.html',
+				text: 'Главная'
+			},
+			{
+				href: 'shop.html',
+				text: 'Магазин'
+			},
+			{
+				href: 'shop.html#care-products',
+				text: 'Средства ухода'
+			}
+		])
 
-	h2
-		| Каталог товаров
+		h2
+			| Каталог товаров
 
-	div.product
-		ul.product__list
-			li.product__item
-				+card({
-					a: {
-						href: '#'
-					},
-					img: {
-						src: ''
-					},
-					header: 'Набор для путешествий «Baxter of California»',
-					price: '2900'
-				})
-			li.product__item
-				+card({
-					a: {
-						href: '#'
-					},
-					img: {
-						src: ''
-					},
-					header: 'Увлажняющий кондиционер «Baxter of California»',
-					price: '750'
-				})
-			li.product__item
-				+card({
-					a: {
-						href: '#'
-					},
-					img: {
-						src: ''
-					},
-					header: 'Гель для волос «SUAVECITO»',
-					price: '290'
-				})
-			li.product__item
-				+card({
-					a: {
-						href: '#'
-					},
-					img: {
-						src: ''
-					},
-					header: 'Глина для укладки волос «American crew»',
-					price: '500'
-				})
-			li.product__item
-				+card({
-					a: {
-						href: '#'
-					},
-					img: {
-						src: ''
-					},
-					header: 'Гель для волос «AMERICAN CREW»',
-					price: '300'
-				})
-			li.product__item
-				+card({
-					a: {
-						href: '#'
-					},
-					img: {
-						src: ''
-					},
-					header: 'Набор для бритья «Baxter of California»',
-					price: '3900'
-				})
+		div.product
+			ul.product__list
+				li.product__item
+					+card({
+						a: {
+							href: '#'
+						},
+						img: {
+							src: ''
+						},
+						header: 'Набор для путешествий «Baxter of California»',
+						price: '2900'
+					})
+				li.product__item
+					+card({
+						a: {
+							href: '#'
+						},
+						img: {
+							src: ''
+						},
+						header: 'Увлажняющий кондиционер «Baxter of California»',
+						price: '750'
+					})
+				li.product__item
+					+card({
+						a: {
+							href: '#'
+						},
+						img: {
+							src: ''
+						},
+						header: 'Гель для волос «SUAVECITO»',
+						price: '290'
+					})
+				li.product__item
+					+card({
+						a: {
+							href: '#'
+						},
+						img: {
+							src: ''
+						},
+						header: 'Глина для укладки волос «American crew»',
+						price: '500'
+					})
+				li.product__item
+					+card({
+						a: {
+							href: '#'
+						},
+						img: {
+							src: ''
+						},
+						header: 'Гель для волос «AMERICAN CREW»',
+						price: '300'
+					})
+				li.product__item
+					+card({
+						a: {
+							href: '#'
+						},
+						img: {
+							src: ''
+						},
+						header: 'Набор для бритья «Baxter of California»',
+						price: '3900'
+					})
 
-	+pagination({1: 'первую', 2: 'вторую', 3: 'третью', 4: 'четвёртую'}, 2)
+		+pagination({1: 'первую', 2: 'вторую', 3: 'третью', 4: 'четвёртую'}, 2)
 
