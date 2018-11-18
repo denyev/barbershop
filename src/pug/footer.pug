@@ -1,0 +1,44 @@
+footer.main-footer
+	div.main-footer__wrap
+		div.main-footer__column
+			div.contacts
+				p.contacts__title
+				p.contacts__text
+					| Адрес: г. Санкт-Петербург, ул. Б. Конюшенская, д. 19/8
+				p.contacts__text
+					a.contacts__link(href="#" title="Перейти к карте")
+						| Как нас найти?
+				p.contacts__text
+					| Телефон:
+					|
+					a.contacts__link.contacts__link--phone(href="tel:+74956660266" title="Позвоните нам!")
+						| +7 (495) 666-02-66
+		div.main-footer__column
+			+socials([
+				{
+					class: 'socials__link--vk',
+					href: '//vk.com',
+					name: 'Вконтакте'
+				},
+				{
+					class: 'socials__link--fb',
+					href: '//fb.com',
+					name: 'Facebook'
+				},
+				{
+					class: 'socials__link--inst',
+					href: '//instagram.com',
+					name: 'Instagram'
+				}
+			])
+		div.main-footer__column
+			div.designed
+				p.designed__title
+					| Разработано:
+				a.designed__link(
+					href="//htmlacademy.ru/intensive/htmlcss"
+					title="Разработано в htmlacademy.ru"
+					target="_blank"
+					rel="nofollow noopener noreferrer"
+				)
+					| HTML Academy
