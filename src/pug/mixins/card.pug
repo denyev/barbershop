@@ -1,0 +1,67 @@
+//-
+	@param {Object[]} options - Contains options of product card.
+	@param {string} options[].a.href - The URL of product page.
+	@param {string} [options[].a.title='Перейти на страницу товара: ' + options[].header] - The URL title.
+	@param {string} [options[].img.src=] - The path to a image.
+	@param {string} [options[].img.alt='Фотография товара: ' + options[].header] - The alternative text for a image.
+	@param {string} [options.img.width=220] - The width of a image.
+	@param {string} [options.img.height=165] - The height of a image.
+	@param {string} options.header - The name of a product.
+	@param {string} options.price - The cost of a product.
+
+	@example
+
+	```
+	+card({
+		a: {
+			href: '',
+			title: ''
+		},
+		img: {
+			src: '',
+			alt: '',
+			width: '',
+			height: ''
+		},
+		header: '',
+		price: ''
+	})
+	```
+
+mixin card(options)
+	article.card&attributes(attributes)
+		- var title = (options.a.title) ? options.a.title : 'Перейти на страницу товара: ' + options.header
+		- var width = (options.img.width) ? options.img.width : 220
+		- var height = (options.img.height) ? options.img.height : 165
+		- var src = (options.img.src) ? options.img.src : 'https://via.placeholder.com/' + width + 'x' + height
+		- var alt = (options.img.alt) ? options.img.alt : 'Фотография товара: ' + options.header
+
+		a.card__img-wrap(
+			href=options.a.href
+			title=title
+		)
+			img.card__img(
+				src=src
+				alt=alt
+				width=width
+				height=height
+			)
+
+		a.card__link(
+			href=options.a.href
+			title=title
+		)
+			h3
+				| #{options.header}
+
+		if(options.price)
+			div.card__price.card__price--currency
+				| #{options.price}
+			button.card__button
+				| Купить
+		else
+			div.card__price
+				| Нет в наличии
+			button.card__button.card__button--disable
+				| Купить
+
