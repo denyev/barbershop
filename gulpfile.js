@@ -122,14 +122,14 @@ gulp.task('copy', () => {
 });
 
 gulp.task('images', () => {
-	return gulp.src('src/images/**/*.*')
-		.pipe($.if(argv.cache, $.newer('build/images')))
+	return gulp.src('src/img/**/*.*')
+		.pipe($.if(argv.cache, $.newer('build/img')))
 		.pipe($.if(argv.debug, $.debug()))
-		.pipe(gulp.dest('build/images'));
+		.pipe(gulp.dest('build/img'));
 });
 
 gulp.task('sprites:png', () => {
-	const spritesData = gulp.src('src/images/sprites/png/*.png')
+	const spritesData = gulp.src('src/img/sprites/png/*.png')
 		.pipe($.plumber({
 			errorHandler,
 		}))
@@ -139,7 +139,7 @@ gulp.task('sprites:png', () => {
 			cssTemplate: 'src/scss/_sprites.hbs',
 			imgName: 'sprites.png',
 			retinaImgName: 'sprites@2x.png',
-			retinaSrcFilter: 'src/images/sprites/png/*@2x.png',
+			retinaSrcFilter: 'src/img/sprites/png/*@2x.png',
 			padding: 2,
 		}));
 
@@ -150,14 +150,14 @@ gulp.task('sprites:png', () => {
 			}))
 			.pipe($.vinylBuffer())
 			.pipe($.imagemin())
-			.pipe(gulp.dest('build/images')),
+			.pipe(gulp.dest('build/img')),
 		spritesData.css
 			.pipe(gulp.dest('src/scss'))
 	);
 });
 
 gulp.task('sprites:svg', () => {
-	return gulp.src('src/images/sprites/svg/*.svg')
+	return gulp.src('src/img/sprites/svg/*.svg')
 		.pipe($.plumber({
 			errorHandler,
 		}))
@@ -172,7 +172,7 @@ gulp.task('sprites:svg', () => {
 		.pipe($.if(!argv.minifySvg, $.replace('><symbol', '>\n<symbol')))
 		.pipe($.if(!argv.minifySvg, $.replace('></svg', '>\n</svg')))
 		.pipe($.rename('sprites.svg'))
-		.pipe(gulp.dest('build/images'));
+		.pipe(gulp.dest('build/img'));
 });
 
 gulp.task('pug', () => {
@@ -304,8 +304,8 @@ gulp.task('lint:js', () => {
 		.pipe($.if((file) => file.eslint && file.eslint.fixed, gulp.dest('.')));
 });
 
-gulp.task('optimize:images', () => {
-	return gulp.src('src/images/**/*.*')
+gulp.task('optimize:img', () => {
+	return gulp.src('src/img/**/*.*')
 		.pipe($.plumber({
 			errorHandler,
 		}))
@@ -322,19 +322,19 @@ gulp.task('optimize:images', () => {
 				quality: 80,
 			}),
 		]))
-		.pipe(gulp.dest('src/images'));
+		.pipe(gulp.dest('src/img'));
 });
 
 gulp.task('optimize:svg', () => {
-	return gulp.src('src/images/**/*.svg', {
-		base: 'src/images',
+	return gulp.src('src/img/**/*.svg', {
+		base: 'src/img',
 	})
 		.pipe($.plumber({
 			errorHandler,
 		}))
 		.pipe($.if(argv.debug, $.debug()))
 		.pipe($.svgmin(svgoConfig(false)))
-		.pipe(gulp.dest('src/images'));
+		.pipe(gulp.dest('src/img'));
 });
 
 gulp.task('watch', () => {
@@ -343,14 +343,14 @@ gulp.task('watch', () => {
 		'src/resources/**/.*',
 	], gulp.series('copy'));
 
-	gulp.watch('src/images/**/*.*', gulp.series('images'));
+	gulp.watch('src/img/**/*.*', gulp.series('images'));
 
 	gulp.watch([
-		'src/images/sprites/png/*.png',
+		'src/img/sprites/png/*.png',
 		'src/scss/_sprites.hbs',
 	], gulp.series('sprites:png'));
 
-	gulp.watch('src/images/sprites/svg/*.svg', gulp.series('sprites:svg'));
+	gulp.watch('src/img/sprites/svg/*.svg', gulp.series('sprites:svg'));
 
 	gulp.watch([
 		'src/*.pug',
