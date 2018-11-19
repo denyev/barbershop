@@ -1,0 +1,60 @@
+//-
+	@param {Object[]} [full[].src=] - The first object that contains the path of full photo.
+	@param {Object[]} [full[].width=] - The width of full photo.
+	@param {Object[]} [full[].height=] - The height of full photo.
+	@param {Object[]} [full[].alt=] - The alternative text of full photo.
+	@param {Object[]} [items[].src=] - The path of preview.
+	@param {Object[]} [items[].width=] - The width of preview.
+	@param {Object[]} [items[].height=] - The height of preview.
+	@param {Object[]} items[].alt - The alternative text of preview.
+
+	@example
+
+	```
+	+slider(
+		{
+			src: '',
+			width: '',
+			height: '',
+			alt: ''
+		},
+		{
+			src: '',
+			width: '',
+			height: '',
+			alt: ''
+		}
+	)
+	```
+
+mixin slider(full, ...items)
+		- var full_width = (full.width) ? full.width : 460
+		- var full_height = (full.height) ? full.height : 498
+		- var full_src = (full.src) ? full.src : 'https://via.placeholder.com/' + full_width + 'x' + full_height
+		- var full_alt = (full.alt) ? full.alt : 'Фото всего набора'
+
+		p.slider__full
+			img.slider__full-img(
+				src=full_src
+				alt=full_alt
+				width=full_width
+				height=full_height
+				items=items.length
+				item-alt=items
+			)
+
+		ul.slider__previews
+			each item in items
+				- var width = (item.width) ? item.width : 140
+				- var height = (item.height) ? item.height : 149
+				- var src = (item.src) ? item.src : 'https://via.placeholder.com/' + width + 'x' + height
+				- var alt = item.alt
+
+				li.slider__preview
+					img.slider__img(
+						src=src
+						alt=alt
+						width=width
+						height=height
+					)
+
