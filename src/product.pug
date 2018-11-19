@@ -1,0 +1,93 @@
+extends pug/base
+
+append vars
+	- page = 'shop'
+	- title = 'Набор для путешествий «Baxter of California» | Barbershop'
+
+block content
+	include pug/header
+	main.product
+		h1.product__title
+			| Набор для путешествий «Baxter of California»
+
+		+breadcrumbs([
+			{
+				href: 'index.html',
+				text: 'Главная'
+			},
+			{
+				href: 'shop.html',
+				text: 'Магазин'
+			},
+			{
+				href: 'shop.html#care-catalog',
+				text: 'Средства ухода'
+			},
+			{
+				href: 'product.html',
+				text: 'Набор для путешествий «Baxter of California»'
+			}
+		])
+
+		section.product__photo
+			h2.visually-hidden
+				| Изображения товара
+			+slider(
+				{
+					src: ''
+				},
+				{
+					src: '',
+					alt: 'Фото в анфас'
+				},
+				{
+					src: '',
+					alt: 'Фото в профиль'
+				},
+				{
+					src: '',
+					alt: 'Фото отдельной части'
+				}
+			)
+
+		section.product__info
+			h2.visually-hidden
+				| Описание товара
+			|
+			|
+			p.product__availability
+				| Есть в наличии
+			|
+			|
+			p.product__article
+				| Артикул: dexter-ae
+			|
+			|
+			p.product__text
+				| Travel Kit – необходимый аксессуар во время любого путешествия. В аккуратной кожаной сумке находится все, что нужно для бритья и ухода за кожей во время рабочей поездки или отдыха: средство для умывания, увлажняющий крем, крем для бритья, крем после бритья, шампунь. Набор также может стать отличным подарком.
+			|
+			|
+			p.product__price
+				b
+					| 2 900 ₽
+				|
+				|
+				a.product__button(
+					href="#"
+					title="Положить товар в корзину"
+				)
+					| Купить
+			|
+			|
+			h3
+				| В набор входят:
+			|
+			|
+			ul
+				li Средство для умывания (50 мл)
+				li Увлажняющий крем (50 мл)
+				li Крем для бритья (50 мл)
+				li Крем после бритья, шампунь (50 мл)
+				li Удобная кожаная косметичка
+
+		include pug/footer
